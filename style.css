@@ -1,0 +1,250 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --text-main: #FFFFFF;
+    --text-muted: #B3B3B3;
+    --accent: #6C63FF;
+    --danger: #FF5252;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+h1 { font-size: 24px; }
+
+/* Статистика */
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* Список подписок */
+.subscriptions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sub-card {
+    background-color: var(--card-bg);
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.sub-card:hover {
+    transform: translateY(-2px);
+}
+
+.sub-info h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.sub-info .sub-meta {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.sub-price {
+    text-align: right;
+}
+
+.sub-price .price-value {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+
+.sub-price .price-date {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 12px;
+    padding: 4px;
+}
+
+.empty-message {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 40px;
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Модальное окно */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background-color: var(--card-bg);
+    padding: 24px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.modal h2 { margin-bottom: 20px; }
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: var(--bg-color);
+    color: white;
+    font-size: 16px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+/* Сетка месяцев */
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 4px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #333;
+}
+
+.month-btn {
+    background-color: #2a2a2a;
+    border: none;
+    border-radius: 4px;
+    color: #888;
+    font-size: 10px;
+    padding: 4px 0;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.month-btn:hover {
+    background-color: #3a3a3a;
+}
+
+/* Статусы */
+.month-btn.paid {
+    background-color: #2e7d32; /* Зеленый */
+    color: white;
+}
+
+.month-btn.skipped {
+    background-color: #c62828; /* Красный */
+    color: white;
+}
+
+.month-btn.empty {
+    background-color: #2a2a2a;
+    color: #666;
+}
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 480px) {
+    .months-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+    }
+}
