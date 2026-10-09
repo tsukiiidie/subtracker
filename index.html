@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubTracker - Мои подписки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Мои подписки</h1>
+            <button id="openModalBtn" class="btn-primary">+ Добавить</button>
+        </header>
+
+        <!-- Блок статистики -->
+        <section class="stats">
+            <div class="stat-card">
+                <span class="stat-label">В месяц</span>
+                <span class="stat-value" id="totalMonth">0 ₽</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">В год</span>
+                <span class="stat-value" id="totalYear">0 ₽</span>
+            </div>
+        </section>
+
+        <!-- Список подписок -->
+        <section class="subscriptions-list" id="subscriptionsList">
+            <!-- Сюда будут добавляться карточки через JS -->
+            <p class="empty-message" id="emptyMessage">У вас пока нет подписок. Добавьте первую!</p>
+        </section>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2>Новая подписка</h2>
+            <form id="subscriptionForm">
+                <div class="form-group">
+                    <label for="name">Название</label>
+                    <input type="text" id="name" required placeholder="Например: Netflix">
+                </div>
+                <div class="form-group">
+                    <label for="cost">Стоимость (₽)</label>
+                    <input type="number" id="cost" required min="1" placeholder="500">
+                </div>
+                <div class="form-group">
+                    <label for="period">Период оплаты</label>
+                    <select id="period">
+                        <option value="monthly">Ежемесячно</option>
+                        <option value="yearly">Ежегодно</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nextDate">Дата следующего списания</label>
+                    <input type="date" id="nextDate" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="closeModalBtn">Отмена</button>
+                    <button type="submit" class="btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+<div class="form-group">
+    <label for="year">Год для отслеживания</label>
+    <select id="year">
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026" selected>2026</option>
+    </select>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
